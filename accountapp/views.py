@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from accountapp.models import HelloWorld
 
@@ -30,3 +30,9 @@ class AccountCreateView(CreateView): # 계정 생성을 위한 클래스
     success_url = reverse_lazy('accountapp:hello_world') # reverse, reverse_lazy의 차이는 FBV와 CBV의 호출시 방식의 차이 때문임.
     print('정상적으로 찍히나요?2222')
     template_name = 'accountapp/create.html' # 어떤 템플릿을 보여줄지 정합니다.
+
+
+class AccountDetailView(DetailView):
+    model = User
+    context_object_name = 'target_user' # 설정하지 않으면 기존 user context 이름으로는 모호하기 때문에 다른 사람의 페이지로 가도 자신의 정보만 보임
+    template_name = 'accountapp/detail.html' # 내 프로필 html 템플릿 위치
