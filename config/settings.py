@@ -118,3 +118,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = 'staticfiles' # staticfiles들이 모여 있는 디렉토리
+
+STATICFILES_DIRS = [                    # 앱에 종속되어 있지 않는 별도의 staticfile 디렉토리 리스트
+    BASE_DIR / 'static',
+]
