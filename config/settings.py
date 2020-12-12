@@ -3,6 +3,8 @@ import environ
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.urls import reverse_lazy
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -124,3 +126,5 @@ STATIC_ROOT = 'staticfiles' # staticfiles들이 모여 있는 디렉토리
 STATICFILES_DIRS = [                    # 앱에 종속되어 있지 않는 별도의 staticfile 디렉토리 리스트
     BASE_DIR / 'static',
 ]
+LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world') # reverse_lazy 깜빡하지 말고 import하기!
+LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
