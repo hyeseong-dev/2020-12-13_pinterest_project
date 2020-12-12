@@ -15,7 +15,7 @@ env = environ.Env(
 )
 # reading .env file
 environ.Env.read_env(
-    env_file=BASE_DIR/'.env'
+    env_file=os.path.join(BASE_DIR, '.env'), # BASE_DIR/'.env' 할 경우 오류 발생
 )
 
 # False if not in os.environ
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
