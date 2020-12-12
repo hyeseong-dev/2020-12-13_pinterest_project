@@ -17,6 +17,12 @@
             testing
         </h1>
 
+        <form action="/account/hello_world/" method="post">
+            {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="POST">
+
+        </form>
+        {{text}}
 
     </div>
 
