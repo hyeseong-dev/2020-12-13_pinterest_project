@@ -122,10 +122,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = 'staticfiles' # staticfiles들이 모여 있는 디렉토리
+STATIC_ROOT = BASE_DIR / 'staticfiles' # staticfiles들이 모여 있는 디렉토리
 
 STATICFILES_DIRS = [                    # 앱에 종속되어 있지 않는 별도의 staticfile 디렉토리 리스트
     BASE_DIR / 'static',
 ]
 LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world') # reverse_lazy 깜빡하지 말고 import하기!
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
